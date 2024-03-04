@@ -1,6 +1,6 @@
 # Système automatisé de diagnostic de santé
 
-Ce système automatisé de diagnostic de santé est une application logicielle conçue pour aider au diagnostic des problèmes de santé basés sur un index de santé. Il suit une architecture modulaire et en couches, en s'appuyant sur des concepts de CQRS (Ségrégation de la Responsabilité de Commande et de Requête) et de DDD (Conception Pilotée par le Domaine) pour garantir l'extensibilité, la maintenabilité et la scalabilité.
+Ce système automatisé de diagnostic de santé est une application logicielle conçue pour aider au diagnostic des problèmes de santé basés sur un index de santé. Il suit une architecture modulaire et en couches, en s'appuyant sur des concepts de CQRS (Command and Query Responsibility Segregation) et de DDD (Domain-Driven Design) pour garantir l'extensibilité, la maintenabilité.
 
 ## Aperçu de l'architecture
 
