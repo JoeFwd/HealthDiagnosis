@@ -21,33 +21,6 @@ public class InMemoryPubSubMessenger implements EventPublisher, EventSubscriber 
 
     private static final Logger logger = LoggerFactory.getLogger(InMemoryPubSubMessenger.class);
 
-//    private static final ExecutorService eventExecutor = Executors.newFixedThreadPool(10);
-//
-//    private static final ExecutorService eventOrchestrator = Executors.newSingleThreadExecutor();
-//
-//    private static final LinkedList<Runnable> runnables = new LinkedList<>();
-//
-//    private static final Runnable runnable = () -> {
-//
-//        while(true) {
-//            if (runnables.peekFirst() == null)
-//                continue;
-//            eventExecutor.execute(runnables.pop());
-//        }
-//    };
-//
-//    static {
-//        eventOrchestrator.execute(runnable);
-//    }
-
-//    private static final Thread thread =  new Thread(() -> {
-//        while (true) {
-//            if (!runnables.isEmpty()) {
-//                runnables.pop().run();
-//            }
-//        }
-//    });
-
     private final Map<Class<Event>, List<EventHandler<Event>>> eventHandlers = new HashMap<>();
 
     @Override
@@ -69,29 +42,6 @@ public class InMemoryPubSubMessenger implements EventPublisher, EventSubscriber 
             }
         });
     }
-
-//    @Override
-//    public void publish(Event event) {
-//        if (event == null) {
-//            throw new IllegalArgumentException("The event must not be null.");
-//        }
-//
-//        if (!eventHandlers.containsKey(event.getClass())) {
-//            logger.info("No subscribers for event: {}", event.getClass().getSimpleName());
-//            return;
-//        }
-//
-//        eventHandlers.get(event.getClass()).forEach(callback -> {
-//            runnables.push(() -> {
-//                try {
-//                    callback.handle(event);
-//                } catch (Exception e) {
-//                    logger.error("An error occurred while handling the event {}", event.getClass().getSimpleName(), e);
-//                }
-//            });
-//        });
-//    }
-
 
     /**
      * @throws IllegalArgumentException if the eventClass or callback is null.

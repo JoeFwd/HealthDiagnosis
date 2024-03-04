@@ -25,16 +25,14 @@ public class Main {
     public static void main(String[] args) {
         bootstrapEvents();
 
-        for (int index = 0; index < Integer.MAX_VALUE ; index++) {
-            int healthIndex = index;
-            eventExecutor.submit(() -> requestDiagnosticCreation(Integer.toString(healthIndex)));
-        }
+        scanUserInputIndefinitely();
     }
 
-    private void scanUserInput() {
+    private static void scanUserInputIndefinitely() {
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         while (stdin.hasNext()) {
-            requestDiagnosticCreation(stdin.nextLine());
+            String healthIndex = stdin.nextLine();
+            eventExecutor.submit(() -> requestDiagnosticCreation(healthIndex));
         }
     }
 
